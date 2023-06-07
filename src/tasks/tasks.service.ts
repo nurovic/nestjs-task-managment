@@ -10,8 +10,8 @@ import { GetTasksFilterDto } from './dto/get-tasks-filter-dto';
 export class TasksService {
   constructor(private readonly tasksRepository: TaskRepository) {}
 
-  getTasks(filterDto: GetTasksFilterDto){
-    
+  async getTasks(filterDto: GetTasksFilterDto): Promise<Task[]> {
+    return this.tasksRepository.getTasks(filterDto);
   }
 
   async getTaskById(id: number): Promise<Task> {
