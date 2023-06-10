@@ -23,7 +23,6 @@ export class TaskRepository extends Repository<Task> {
         'task.title LIKE :search OR task.description LIKE :search',
         { search: `%${search}` },
       );
-
     }
 
     const tasks = await query.getMany();
